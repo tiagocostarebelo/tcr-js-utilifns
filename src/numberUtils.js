@@ -67,7 +67,7 @@ export function getRandomInt(min, max) {
     max = Math.floor(max);
 
     if (min > max) {
-        console.warn("getRandomInt: min cannot be greated than max. Swapping values.");
+        console.warn("getRandomInt: min cannot be greater than max. Swapping values.");
         [min, max] = [max, min];
     }
 
