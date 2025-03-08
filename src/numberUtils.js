@@ -38,13 +38,17 @@ export function roundTo(number, decimalPlaces) {
         return NaN;
     }
 
-    if (typeof decimalPlaces !== 'number' || isNan(decimalPlaces)) {
+    if (typeof decimalPlaces !== 'number' || isNaN(decimalPlaces)) {
         console.error("roundTo: Input decimalPlaces must be a valid number. Using default value of 0.");
         decimalPlaces = 0;
     }
 
-    const multiplier = Math.pow(10, decimalPlaces);
-    return Math.round(number * multiplier) / multiplier;
+    if (decimalPlaces < 0) {
+        console.error("roundTo: decimalPlaces must be a non-negative number.");
+        return NaN;
+    }
+
+    return Number(number.toFixed(decimalPlaces));
 }
 
 /**
