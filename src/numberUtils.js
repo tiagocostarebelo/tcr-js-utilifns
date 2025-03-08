@@ -73,3 +73,34 @@ export function getRandomInt(min, max) {
 
     return Math.floor(Math.random() * (max - min + 1)) + min;
 }
+
+
+/**
+ * Returns the sum of all numbers in an array
+ * @param {numbers[]} numbers - An array of numbers.
+ * @returns {number | NaN} An integer value representing the sum of all numbers in the array, or NaN if not a valid array or if any element of the array is not a number.
+ */
+export function sum(numbers) {
+    if (!Array.isArray(numbers)) {
+        console.error("sum: Input is not an array.");
+        return NaN;
+    }
+
+    if (numbers.length === 0) {
+        return 0;
+    }
+
+    let total = 0;
+    for (let i = 0; i < numbers.length; i++) {
+        const num = numbers[i];
+
+        if (typeof num !== 'number' || isNaN(num)) {
+            console.error("sum: Array elements must be numbers.");
+            return NaN;
+        }
+
+        total += num;
+    }
+
+    return total;
+}
