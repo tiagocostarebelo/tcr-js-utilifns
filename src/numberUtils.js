@@ -39,8 +39,8 @@ export function roundTo(number, decimalPlaces) {
     }
 
     if (typeof decimalPlaces !== 'number' || isNaN(decimalPlaces)) {
-        console.error("roundTo: Input decimalPlaces must be a valid number. Using default value of 0.");
-        decimalPlaces = 0;
+        console.error("roundTo: Input decimalPlaces must be a valid number.");
+        return NaN;
     }
 
     if (decimalPlaces < 0) {
