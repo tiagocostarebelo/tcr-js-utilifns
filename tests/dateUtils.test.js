@@ -84,5 +84,27 @@ describe('Date Utilities', () => {
         });
     });
 
+    // isLeapYear function test
+    describe('isLeapYear', () => {
+        it('Should return true for leap years', () => {
+            expect(isLeapYear(2024)).toBe(true);
+            expect(isLeapYear(2020)).toBe(true);
+        });
+
+        it('Should return false for non leap years', () => {
+            expect(isLeapYear(2025)).toBe(false);
+            expect(isLeapYear(2021)).toBe(false);
+        });
+
+        it('should return undefined if input is invalid', () => {
+            console.error = jest.fn();
+            expect(isLeapYear("Two thousand and twenty five")).toBeUndefined();
+            expect(isLeapYear("2025")).toBeUndefined();
+            expect(isLeapYear(NaN)).toBeUndefined();
+            expect(console.error).toHaveBeenCalledWith("isLeapYear: Input must be a valid number.");
+            console.error.mockRestore();
+        });
+    });
+
 
 });
