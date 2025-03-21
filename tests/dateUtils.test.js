@@ -8,11 +8,46 @@ import {
 
 describe('Date Utilities', () => {
 
+    // getDayOfTheWeek function test
     describe('getDayOfTheWeek', () => {
-        test('should return correct day of the week for a valid date', () => {
-            const date = new Date("2025-03-07");
-            expect(getDayOfTheWeek(date)).toBe("Friday");
-        })
+        it('should return correct day of the week for a valid date', () => {
+            expect(getDayOfTheWeek(new Date(2024, 0, 21))).toBe("Sunday");  // Month is 0-indexed
+            expect(getDayOfTheWeek(new Date(2024, 0, 22))).toBe("Monday");
+            expect(getDayOfTheWeek(new Date(2024, 0, 23))).toBe("Tuesday");
+            expect(getDayOfTheWeek(new Date(2024, 0, 24))).toBe("Wednesday");
+            expect(getDayOfTheWeek(new Date(2024, 0, 25))).toBe("Thursday");
+            expect(getDayOfTheWeek(new Date(2024, 0, 26))).toBe("Friday");
+            expect(getDayOfTheWeek(new Date(2024, 0, 27))).toBe("Saturday");
+        });
+
+        it('should return undefined for an invalid date input', () => {
+            console.error = jest.fn(); // Mock console.error to avoid output in tests
+            expect(getDayOfTheWeek("not a date")).toBeUndefined();
+            expect(console.error).toHaveBeenCalledWith("getDayOfTheWeek: Input must be a valid Date object.");
+            console.error.mockRestore(); // Restore console.error
+        });
     })
 
-})
+
+    // diffInDays function test
+    describe('diffInDays', () => {
+        it('should return the difference in days between two dates', () => {
+            expect(diffInDays(new Date(2024, 2, 21), new Date(2023, 2, 22))).toBe(365);
+            expect(diffInDays(new Date(2025, 3, 21), new Date(2010, 1, 1))).toBe(5557);
+            expect(diffInDays(new Date(2001, 3, 21), new Date(2010, 1, 1))).toBe(3208);
+            expect(diffInDays(new Date(2010, 1, 1), new Date(2010, 1, 1))).toBe(0);
+        });
+
+        it('should return undefined if inputs are invalid date objects', () => {
+            console.error = jest.fn();
+            expect(diffInDays("not a date", "not a date")).toBeUndefined();
+            expect(diffInDays("not a date", new Date(2020, 10, 25))).toBeUndefined();
+            expect(diffInDays(new Date(2020, 10, 25), "not a date")).toBeUndefined();
+            expect(console.error).toHaveBeenCalledWith("diffInDays: Both inputs must be valid Date objects.");
+            console.error.mockRestore();
+        });
+    })
+
+
+
+});
