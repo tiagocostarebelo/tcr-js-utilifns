@@ -26,7 +26,7 @@ describe('Date Utilities', () => {
             expect(console.error).toHaveBeenCalledWith("getDayOfTheWeek: Input must be a valid Date object.");
             console.error.mockRestore(); // Restore console.error
         });
-    })
+    });
 
 
     // diffInDays function test
@@ -46,8 +46,43 @@ describe('Date Utilities', () => {
             expect(console.error).toHaveBeenCalledWith("diffInDays: Both inputs must be valid Date objects.");
             console.error.mockRestore();
         });
-    })
+    });
 
+    // diffInMonths function test
+    describe('diffInMonths', () => {
+        it('should return the difference in months between two dates', () => {
+            expect(diffInMonths(new Date(2024, 2, 21), new Date(2023, 2, 22))).toBe(-12);
+            expect(diffInMonths(new Date(2025, 3, 21), new Date(2010, 1, 1))).toBe(-182);
+            expect(diffInMonths(new Date(2001, 3, 21), new Date(2010, 1, 1))).toBe(106);
+        });
+
+        it('should return undefined if inputs are invalid date objects', () => {
+            console.error = jest.fn();
+            expect(diffInMonths("not a date", "not a date")).toBeUndefined();
+            expect(diffInMonths("not a date", new Date(2020, 10, 25))).toBeUndefined();
+            expect(diffInMonths(new Date(2020, 10, 25), "not a date")).toBeUndefined();
+            expect(console.error).toHaveBeenCalledWith("diffInMonths: Both inputs must be valid Date objects.");
+            console.error.mockRestore();
+        });
+    });
+
+    // diffInYears function test
+    describe('diffInYears', () => {
+        it('should return the difference in years between two dates', () => {
+            expect(diffInYears(new Date(2024, 2, 21), new Date(2023, 2, 22))).toBe(-1);
+            expect(diffInYears(new Date(2025, 3, 21), new Date(2010, 1, 1))).toBe(-15);
+            expect(diffInYears(new Date(2001, 3, 21), new Date(2010, 1, 1))).toBe(9);
+        });
+
+        it('should return undefined if inputs are invalid date objects', () => {
+            console.error = jest.fn();
+            expect(diffInYears("not a date", "not a date")).toBeUndefined();
+            expect(diffInYears("not a date", new Date(2020, 10, 25))).toBeUndefined();
+            expect(diffInYears(new Date(2020, 10, 25), "not a date")).toBeUndefined();
+            expect(console.error).toHaveBeenCalledWith("diffInYears: Both inputs must be valid Date objects.");
+            console.error.mockRestore();
+        });
+    });
 
 
 });
