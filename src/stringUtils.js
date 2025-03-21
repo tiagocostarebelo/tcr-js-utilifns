@@ -169,3 +169,29 @@ export function removeWhitespace(str) {
     }
     return str.replace(/\s+/g, "");
 }
+
+/**
+ * Checks if two strings are anagrams (contain the same characters in any order).
+ * @param {string} str1 - First string to check
+ * @param {string} str2 - Second string to compare with
+ * @return {boolean} True if the strings have the same characters, or false if otherwise.
+ * @example
+ * isAnagram("listen", "silent"); // true
+ * isAnagram("hello", "world"); // false
+ */
+export function isAnagram(str1, str2) {
+    if (typeof str1 !== 'string' || typeof str2 !== 'string') {
+        console.error("isAnagram: Inputs must be strings.");
+        return false;
+    }
+    const formatString = (str) =>
+        str
+            .replace(/[^\w]/g, '')
+            .toLowerCase()
+            .split('')
+            .sort()
+            .join('');
+
+    return formatString(str1) === formatString(str2);
+
+}
