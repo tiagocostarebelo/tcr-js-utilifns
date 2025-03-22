@@ -22,12 +22,12 @@ describe('String Utilities', () => {
             expect(capitalize('hello world')).toBe('Hello world');
         });
 
-        it('Should return an empty string if the input is invalid', () => {
+        it('Should return undefined if the input is invalid', () => {
             console.error = jest.fn();
-            expect(capitalize(1234)).toBe("");
-            expect(capitalize("")).toBe("");
-            expect(capitalize(null)).toBe("");
-            expect(capitalize(undefined)).toBe("");
+            expect(capitalize(1234)).toBeUndefined();
+            expect(capitalize("")).toBeUndefined();
+            expect(capitalize(null)).toBeUndefined();
+            expect(capitalize(undefined)).toBeUndefined();
             expect(console.error).toHaveBeenCalledWith("capitalize: Input must be a non-empty string.");
             console.error.mockRestore();
         });
@@ -46,12 +46,12 @@ describe('String Utilities', () => {
             expect(camelCase("string@123$with^456*numbers#789")).toBe("string123With456Numbers789");
         });
 
-        it('Should return an empty string if input is invalid', () => {
+        it('Should return undefined if input is invalid', () => {
             console.error = jest.fn();
-            expect(camelCase(1234)).toBe("");
-            expect(camelCase("")).toBe("");
-            expect(camelCase(null)).toBe("");
-            expect(camelCase(undefined)).toBe("");
+            expect(camelCase(1234)).toBeUndefined();
+            expect(camelCase("")).toBeUndefined();
+            expect(camelCase(null)).toBeUndefined();
+            expect(camelCase(undefined)).toBeUndefined();
             expect(console.error).toHaveBeenCalledWith("camelCase: Input must be a non-empty string.");
             console.error.mockRestore();
         });
@@ -69,12 +69,12 @@ describe('String Utilities', () => {
             expect(kebabCase("  leading and trailing spaces  ")).toBe("leading-and-trailing-spaces");
         });
 
-        it('Should return an empty string if input is invalid', () => {
+        it('Should return undefined if input is invalid', () => {
             console.error = jest.fn();
-            expect(kebabCase(1234)).toBe("");
-            expect(kebabCase("")).toBe("");
-            expect(kebabCase(null)).toBe("");
-            expect(kebabCase(undefined)).toBe("");
+            expect(kebabCase(1234)).toBeUndefined();
+            expect(kebabCase("")).toBeUndefined();
+            expect(kebabCase(null)).toBeUndefined();
+            expect(kebabCase(undefined)).toBeUndefined();
             expect(console.error).toHaveBeenCalledWith("kebabCase: Input must be a non-empty string.");
             console.error.mockRestore();
         });
@@ -92,12 +92,12 @@ describe('String Utilities', () => {
             expect(snakeCase("  leading and trailing spaces  ")).toBe("leading_and_trailing_spaces");
         });
 
-        it('Should return an empty string if input is invalid', () => {
+        it('Should return undefined if input is invalid', () => {
             console.error = jest.fn();
-            expect(snakeCase(1234)).toBe("");
-            expect(snakeCase("")).toBe("");
-            expect(snakeCase(null)).toBe("");
-            expect(snakeCase(undefined)).toBe("");
+            expect(snakeCase(1234)).toBeUndefined();
+            expect(snakeCase("")).toBeUndefined();
+            expect(snakeCase(null)).toBeUndefined();
+            expect(snakeCase(undefined)).toBeUndefined();
             expect(console.error).toHaveBeenCalledWith("snakeCase: Input must be a non-empty string.");
             console.error.mockRestore();
         });
@@ -110,11 +110,11 @@ describe('String Utilities', () => {
             expect(truncate("Hello world", 10)).toBe("Hello worl...");
         });
 
-        it('Should return an empty string if input is a non-empty string', () => {
+        it('Should return undefined if input is a non-empty string', () => {
             console.error = jest.fn();
-            expect(truncate("", 5)).toBe("");
-            expect(truncate(null, 15)).toBe("");
-            expect(truncate(undefined, 15)).toBe("");
+            expect(truncate("", 5)).toBeUndefined();
+            expect(truncate(null, 15)).toBeUndefined();
+            expect(truncate(undefined, 15)).toBeUndefined();
             expect(console.error).toHaveBeenCalledWith("truncate: Input must be a non-empty string.");
             console.error.mockRestore();
         });
@@ -136,12 +136,12 @@ describe('String Utilities', () => {
             expect(reverseString("123 Follow my lead")).toBe("dael ym wolloF 321");
         });
 
-        it('Should return an empty string if input is not a valid string', () => {
+        it('Should return undefined if input is not a valid string', () => {
             console.error = jest.fn();
-            expect(reverseString("")).toBe("");
-            expect(reverseString(1234)).toBe("");
-            expect(reverseString(undefined)).toBe("");
-            expect(reverseString(null)).toBe("");
+            expect(reverseString("")).toBeUndefined();
+            expect(reverseString(1234)).toBeUndefined();
+            expect(reverseString(undefined)).toBeUndefined();
+            expect(reverseString(null)).toBeUndefined();
             expect(console.error).toHaveBeenCalledWith("reverseString: Input must be a string.");
             console.error.mockRestore();
         });
@@ -160,16 +160,38 @@ describe('String Utilities', () => {
 
         it('Should return 0 if one or both arguments are not valid', () => {
             console.error = jest.fn();
-            expect(countOccurrences("Hello")).toBe(0);
-            expect(countOccurrences("Hello", undefined)).toBe(0);
-            expect(countOccurrences("Hello", null)).toBe(0);
-            expect(countOccurrences("Hello", "")).toBe(0);
-            expect(countOccurrences("e")).toBe(0);
-            expect(countOccurrences("", "e")).toBe(0);
-            expect(countOccurrences(undefined, "e")).toBe(0);
-            expect(countOccurrences(null, "e")).toBe(0);
+            expect(countOccurrences("Hello")).toBeUndefined();
+            expect(countOccurrences("Hello", undefined)).toBeUndefined();
+            expect(countOccurrences("Hello", null)).toBeUndefined();
+            expect(countOccurrences("Hello", "")).toBeUndefined();
+            expect(countOccurrences("e")).toBeUndefined();
+            expect(countOccurrences("", "e")).toBeUndefined();
+            expect(countOccurrences(undefined, "e")).toBeUndefined();
+            expect(countOccurrences(null, "e")).toBeUndefined();
             expect(console.error).toHaveBeenCalledWith("countOccurrences: Both arguments must be valid strings.");
             console.error.mockRestore();
+        });
+
+        // startsWith function test
+        describe('startsWith', () => {
+            it('Should check if a string starts with a given substring and return true or false', () => {
+                expect(startsWith("Hello world", "H")).toBe(true);
+                expect(startsWith("Hello world", "W")).toBe(false);
+                expect(startsWith("Who wants to live forever", "W")).toBe(true);
+                expect(startsWith("Who wants to live forever", "w")).toBe(false);
+            });
+
+            it('Should return undefined if one or both input strings are not valid', () => {
+                console.error = jest.fn();
+                expect(startsWith("Hello world", "")).toBeUndefined();
+                expect(startsWith("Who wants to live forever", undefined)).toBeUndefined();
+                expect(startsWith("Who wants to live forever", null)).toBeUndefined();
+                expect(startsWith("", "A")).toBeUndefined();
+                expect(startsWith(undefined, "B")).toBeUndefined();
+                expect(startsWith(null, "B")).toBeUndefined();
+                expect(console.error).toHaveBeenCalledWith("startsWith: Both arguments must be valid strings.");
+                console.error.mockRestore();
+            });
         });
     });
 });

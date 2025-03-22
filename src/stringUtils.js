@@ -1,14 +1,14 @@
 /**
  * Capitalizes the first letter of a string.
  * @param {string} str - The input string.
- * @returns {string} The capitalized string, or an empty string if input is invalid.
+ * @returns {string | undefined} The capitalized string, or undefined if input is invalid.
  * @example
  * capitalize("hello world"); // "Hello world"
  */
 export function capitalize(str) {
     if (typeof str !== 'string' || str.length === 0) {
         console.error("capitalize: Input must be a non-empty string.");
-        return "";
+        return undefined;
     }
     return str.charAt(0).toUpperCase() + str.slice(1);
 }
@@ -16,14 +16,14 @@ export function capitalize(str) {
 /**
  * Converts a string to camelCase.
  * @param {string} str - The input string.
- * @returns {string} The camelCased string.
+ * @returns {string | undefined} The camelCased string or undefined if input is invalid.
  * @example
  * camelCase("hello world"); // "helloWorld"
  */
 export function camelCase(str) {
     if (typeof str !== 'string' || str.length === 0) {
         console.error("camelCase: Input must be a non-empty string.");
-        return "";
+        return undefined;
     }
     return str
         .trim()
@@ -34,14 +34,14 @@ export function camelCase(str) {
 /**
  * Converts a string to kebab-case.
  * @param {string} str - The input string.
- * @returns {string} The kebab-cased string.
+ * @returns {string | undefined} The kebab-cased string or undefined if input is not a valid string.
  * @example
  * kebabCase("hello world"); // "hello-world"
  */
 export function kebabCase(str) {
     if (typeof str !== 'string' || str.length === 0) {
         console.error("kebabCase: Input must be a non-empty string.");
-        return "";
+        return undefined;
     }
     return str
         .trim()
@@ -54,14 +54,14 @@ export function kebabCase(str) {
 /**
  * Converts a string to snake_case.
  * @param {string} str - The input string.
- * @returns {string} The snake_cased string.
+ * @returns {string | undefined } The snake_cased string or undefined if input is not a valid string.
  * @example
  * snakeCase("hello world"); // "hello_world"
  */
 export function snakeCase(str) {
     if (typeof str !== 'string' || str.length === 0) {
         console.error("snakeCase: Input must be a non-empty string.");
-        return "";
+        return undefined;
     }
     return str
         .trim()
@@ -75,14 +75,14 @@ export function snakeCase(str) {
  * Truncates a string to a specified length, adding "..." if truncated.
  * @param {string} str - The input string.
  * @param {number} length - The maximum length.
- * @returns {string} The truncated string.
+ * @returns {string | undefined } The truncated string, undefined if input is not a valid string or return the origin string if Length is not a positive number.
  * @example
  * truncate("Hello world", 5); // "Hello..."
  */
 export function truncate(str, length) {
     if (typeof str !== 'string' || str.length === 0) {
         console.error("truncate: Input must be a non-empty string.");
-        return "";
+        return undefined;
     }
     if (typeof length !== 'number' || length <= 0) {
         console.error("truncate: Length must be a positive number.");
@@ -94,14 +94,14 @@ export function truncate(str, length) {
 /**
  * Reverses a string.
  * @param {string} str - The input string.
- * @returns {string} The reversed string.
+ * @returns {string | undefined } The reversed string or undefined if input is not a valid string.
  * @example
  * reverseString("hello"); // "olleh"
  */
 export function reverseString(str) {
-    if (typeof str !== 'string') {
+    if (typeof str !== 'string' || str === "") {
         console.error("reverseString: Input must be a string.");
-        return "";
+        return undefined;
     }
     return str.split("").reverse().join("");
 }
@@ -111,14 +111,14 @@ export function reverseString(str) {
  * Counts the occurrences of a substring within a string.
  * @param {string} str - The main string.
  * @param {string} sub - The substring to count.
- * @returns {number} The number of occurrences.
+ * @returns {number | undefined } The number of occurrences or undefiend if any or both inputs are not valid strings.
  * @example
  * countOccurrences("hello hello", "hello"); // 2
  */
 export function countOccurrences(str, sub) {
     if (typeof str !== 'string' || typeof sub !== 'string' || str === "" || sub.length === 0) {
         console.error("countOccurrences: Both arguments must be valid strings.");
-        return 0;
+        return undefined;
     }
     return str.split(sub).length - 1;
 }
@@ -127,14 +127,14 @@ export function countOccurrences(str, sub) {
  * Checks if a string starts with a given substring.
  * @param {string} str - The main string.
  * @param {string} prefix - The prefix to check.
- * @returns {boolean} True if the string starts with the prefix, false otherwise.
+ * @returns {boolean} True if the string starts with the prefix, false otherwise. Returns undefined if one or both inputs are not valid strings.
  * @example
  * startsWith("hello world", "hello"); // true
  */
 export function startsWith(str, prefix) {
-    if (typeof str !== 'string' || typeof prefix !== 'string') {
+    if (typeof str !== 'string' || typeof prefix !== 'string' || str === "" || prefix === "") {
         console.error("startsWith: Both arguments must be valid strings.");
-        return false;
+        return undefined;
     }
     return str.startsWith(prefix);
 }
