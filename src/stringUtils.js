@@ -159,14 +159,14 @@ export function endsWith(str, suffix) {
 /**
  * Removes all whitespace from a string.
  * @param {string} str - The input string.
- * @returns {string} The string without whitespace.
+ * @returns {string | undefined} The string without whitespace or undefined if input is invalid.
  * @example
  * removeWhitespace("  hello world  "); // "helloworld"
  */
 export function removeWhitespace(str) {
-    if (typeof str !== 'string') {
+    if (typeof str !== 'string' || str === '') {
         console.error("removeWhitespace: Input must be a string.");
-        return "";
+        return undefined;
     }
     return str.replace(/\s+/g, "");
 }

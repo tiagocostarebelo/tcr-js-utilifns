@@ -217,5 +217,24 @@ describe('String Utilities', () => {
                 console.error.mockRestore();
             });
         });
+
+
+        // removeWhitespace function test
+        describe('removeWhitespace', () => {
+            it('Should remove all whitespaces from a string', () => {
+                expect(removeWhitespace("  Hello world  .  ")).toBe("Helloworld.");
+                expect(removeWhitespace("White space is removed")).toBe("Whitespaceisremoved");
+            });
+
+            it('Should return undefined if input string is invalid', () => {
+                console.error = jest.fn();
+                expect(removeWhitespace("")).toBeUndefined();
+                expect(removeWhitespace(undefined)).toBeUndefined();
+                expect(removeWhitespace(null)).toBeUndefined();
+                expect(removeWhitespace(1245)).toBeUndefined();
+                expect(console.error).toHaveBeenCalledWith("removeWhitespace: Input must be a string.");
+                console.error.mockRestore();
+            });
+        });
     });
 });
