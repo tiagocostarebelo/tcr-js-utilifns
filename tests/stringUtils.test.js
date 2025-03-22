@@ -236,5 +236,26 @@ describe('String Utilities', () => {
                 console.error.mockRestore();
             });
         });
+
+        // isAnagram function test
+        describe('isAnagram', () => {
+            it('Should check if two strings are anagrams (contain the same characters in any order)', () => {
+                expect(isAnagram("Arm", "ram")).toBe(true);
+                expect(isAnagram("below", "Elbow")).toBe(true);
+                expect(isAnagram("night ", "thing")).toBe(true);
+            })
+
+            it('Should return undefined if one or both inputs are not valid strings', () => {
+                console.error = jest.fn();
+                expect(isAnagram("", "string")).toBeUndefined();
+                expect(isAnagram("string", "")).toBeUndefined();
+                expect(isAnagram(undefined, "string")).toBeUndefined();
+                expect(isAnagram("string", undefined)).toBeUndefined();
+                expect(isAnagram(null, "string")).toBeUndefined();
+                expect(isAnagram("string", null)).toBeUndefined();
+                expect(console.error).toHaveBeenCalledWith("isAnagram: Inputs must be strings.");
+                console.error.mockRestore();
+            })
+        })
     });
 });
