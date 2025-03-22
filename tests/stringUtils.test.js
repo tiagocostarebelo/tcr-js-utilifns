@@ -146,4 +146,30 @@ describe('String Utilities', () => {
             console.error.mockRestore();
         });
     });
+
+    // countOccurences function test
+    describe('countOccurences', () => {
+        it('Should return the number of occurences of a substring within a string', () => {
+            expect(countOccurrences("Hello", "o")).toBe(1);
+            expect(countOccurrences("Hello", "l")).toBe(2);
+            expect(countOccurrences("Anthropology", "a")).toBe(0);
+            expect(countOccurrences("Synonyms", "S")).toBe(1);
+            expect(countOccurrences("Synonyms", "y")).toBe(2);
+            expect(countOccurrences("hello hello hello", "hello")).toBe(3);
+        });
+
+        it('Should return 0 if one or both arguments are not valid', () => {
+            console.error = jest.fn();
+            expect(countOccurrences("Hello")).toBe(0);
+            expect(countOccurrences("Hello", undefined)).toBe(0);
+            expect(countOccurrences("Hello", null)).toBe(0);
+            expect(countOccurrences("Hello", "")).toBe(0);
+            expect(countOccurrences("e")).toBe(0);
+            expect(countOccurrences("", "e")).toBe(0);
+            expect(countOccurrences(undefined, "e")).toBe(0);
+            expect(countOccurrences(null, "e")).toBe(0);
+            expect(console.error).toHaveBeenCalledWith("countOccurrences: Both arguments must be valid strings.");
+            console.error.mockRestore();
+        });
+    });
 });

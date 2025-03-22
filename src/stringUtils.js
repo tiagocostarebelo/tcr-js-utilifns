@@ -116,7 +116,7 @@ export function reverseString(str) {
  * countOccurrences("hello hello", "hello"); // 2
  */
 export function countOccurrences(str, sub) {
-    if (typeof str !== 'string' || typeof sub !== 'string' || sub.length === 0) {
+    if (typeof str !== 'string' || typeof sub !== 'string' || str === "" || sub.length === 0) {
         console.error("countOccurrences: Both arguments must be valid strings.");
         return 0;
     }
