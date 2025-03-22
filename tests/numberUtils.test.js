@@ -123,10 +123,33 @@ describe('Number Utilities', () => {
         it('should return the sum of all numbers in an array', () => {
             const numbersArr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
             expect(sum(numbersArr)).toBe(55);
-        })
-    })
 
+            const numbersArr2 = [-1, 2, -3, 4, -5]; // Test with negative numbers
+            expect(sum(numbersArr2)).toBe(-3);
 
+            const numbersArr3 = [2.5, 3.5, 1]; // Test with floating-point numbers
+            expect(sum(numbersArr3)).toBe(7);
+        });
 
+        it('should return 0 if array is empty', () => {
+            const numbersArr = [];
+            expect(sum(numbersArr)).toBe(0);
+        });
+
+        it('should return NaN if the input is not an array', () => {
+            console.error = jest.fn();
+            expect(sum("not an array")).toBeNaN();
+            expect(console.error).toHaveBeenCalledWith("sum: Input is not an array.");
+            console.error.mockRestore();
+        });
+
+        it('should return NaN if array has other elements than just numbers', () => {
+            console.error = jest.fn();
+            const newArray = ['string', NaN, 1, 10, 243, 'name'];
+            expect(sum(newArray)).toBeNaN();
+            expect(console.error).toHaveBeenCalledWith("sum: Array elements must be numbers.");
+            console.error.mockRestore();
+        });
+    });
 
 })
