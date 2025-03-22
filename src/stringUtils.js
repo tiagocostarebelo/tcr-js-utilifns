@@ -26,6 +26,7 @@ export function camelCase(str) {
         return "";
     }
     return str
+        .trim()
         .toLowerCase()
         .replace(/[^a-zA-Z0-9]+(.)/g, (match, chr) => chr.toUpperCase());
 }
