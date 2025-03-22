@@ -1,7 +1,7 @@
 /**
  * Checks if an object is empty (has no enumerable properties).
  * @param {Object} obj - The object to check.
- * @returns {boolean} True if the object is empty, false otherwise.
+ * @returns {boolean} True if the object is empty, false otherwise, null if object is null or not an object
  * @example
  * isEmpty({}); // true
  * isEmpty({ key: 'value' }); // false
@@ -9,7 +9,7 @@
 export function isEmpty(obj) {
     if (obj === null || typeof obj !== 'object') {
         console.error('isEmpty: Argument is not a valid object.');
-        return false;
+        return null;
     }
     return Object.keys(obj).length === 0;
 }
