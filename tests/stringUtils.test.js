@@ -255,7 +255,7 @@ describe('String Utilities', () => {
                 expect(isAnagram("string", null)).toBeUndefined();
                 expect(console.error).toHaveBeenCalledWith("isAnagram: Inputs must be strings.");
                 console.error.mockRestore();
-            })
-        })
+            });
+        });
     });
 });
