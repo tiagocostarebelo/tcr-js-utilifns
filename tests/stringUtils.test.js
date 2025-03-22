@@ -79,4 +79,53 @@ describe('String Utilities', () => {
             console.error.mockRestore();
         });
     });
+
+    // snakeCase function test 
+    describe('snakeCase', () => {
+        it('Should convert a string to snake_case', () => {
+            expect(snakeCase("Hello world")).toBe("hello_world");
+            expect(snakeCase("Your name HERE")).toBe("your_name_here");
+            expect(snakeCase("New String name here")).toBe("new_string_name_here");
+            expect(snakeCase("string-in-kebab-case")).toBe("string_in_kebab_case");
+            expect(snakeCase("already_in_snakeCase")).toBe("already_in_snakecase");
+            expect(snakeCase("string 123 with 456 numbers 789")).toBe("string_123_with_456_numbers_789");
+            expect(snakeCase("  leading and trailing spaces  ")).toBe("leading_and_trailing_spaces");
+        });
+
+        it('should return an empty string if input is invalid', () => {
+            console.error = jest.fn();
+            expect(snakeCase(1234)).toBe("");
+            expect(snakeCase("")).toBe("");
+            expect(snakeCase(null)).toBe("");
+            expect(snakeCase(undefined)).toBe("");
+            expect(console.error).toHaveBeenCalledWith("snakeCase: Input must be a non-empty string.");
+            console.error.mockRestore();
+        });
+    });
+
+    // truncate function test
+    describe('truncate', () => {
+        it('Should truncate a given string to a specified length adding "..." if truncated', () => {
+            expect(truncate("Hello world", 5)).toBe("Hello...");
+            expect(truncate("Hello world", 10)).toBe("Hello worl...");
+        });
+
+        it('Should return an empty string if input is a non-empty string', () => {
+            console.error = jest.fn();
+            expect(truncate("", 5)).toBe("");
+            expect(truncate(null, 15)).toBe("");
+            expect(truncate(undefined, 15)).toBe("");
+            expect(console.error).toHaveBeenCalledWith("truncate: Input must be a non-empty string.");
+            console.error.mockRestore();
+        });
+
+        it('Should return given string if length is not a positive or valid number', () => {
+            console.error = jest.fn();
+            expect(truncate("Hello world", "10")).toBe("Hello world");
+            expect(truncate("Hello world", -5)).toBe("Hello world");
+            expect(truncate("Hello world")).toBe("Hello world");
+            expect(console.error).toHaveBeenCalledWith("truncate: Length must be a positive number.");
+            console.error.mockRestore();
+        });
+    });
 });
