@@ -56,4 +56,27 @@ describe('String Utilities', () => {
             console.error.mockRestore();
         });
     });
+
+    // kebabCase function test
+    describe('kebabCase', () => {
+        it('should converta string to kebabCase', () => {
+            expect(kebabCase("Hello world")).toBe("hello-world");
+            expect(kebabCase("Your name HERE")).toBe("your-name-here");
+            expect(kebabCase("New String name here")).toBe("new-string-name-here");
+            expect(kebabCase("already-in-kebab-case")).toBe("already-in-kebab-case");
+            expect(kebabCase("new_string_with_underscores")).toBe("new-string-with-underscores");
+            expect(kebabCase("string 123 with 456 numbers 789")).toBe("string-123-with-456-numbers-789");
+            expect(kebabCase("  leading and trailing spaces  ")).toBe("leading-and-trailing-spaces");
+        });
+
+        it('should return an empty string if input is invalid', () => {
+            console.error = jest.fn();
+            expect(kebabCase(1234)).toBe("");
+            expect(kebabCase("")).toBe("");
+            expect(kebabCase(null)).toBe("");
+            expect(kebabCase(undefined)).toBe("");
+            expect(console.error).toHaveBeenCalledWith("kebabCase: Input must be a non-empty string.");
+            console.error.mockRestore();
+        });
+    });
 });
