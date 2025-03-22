@@ -143,14 +143,14 @@ export function startsWith(str, prefix) {
  * Checks if a string ends with a given substring.
  * @param {string} str - The main string.
  * @param {string} suffix - The suffix to check.
- * @returns {boolean} True if the string ends with the suffix, false otherwise.
+ * @returns {boolean | undefined } True if the string ends with the suffix, false otherwise and undefined if one or both argument inputs are not valid.
  * @example
  * endsWith("hello world", "world"); // true
  */
 export function endsWith(str, suffix) {
-    if (typeof str !== 'string' || typeof suffix !== 'string') {
+    if (typeof str !== 'string' || typeof suffix !== 'string' || str === "" || suffix === "") {
         console.error("endsWith: Both arguments must be valid strings.");
-        return false;
+        return undefined;
     }
     return str.endsWith(suffix);
 }

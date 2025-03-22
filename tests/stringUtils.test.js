@@ -193,5 +193,29 @@ describe('String Utilities', () => {
                 console.error.mockRestore();
             });
         });
+
+        // endsWith function test
+        describe('endsWith', () => {
+            it('Should check if a string starts with a given substring and return true or false', () => {
+                expect(endsWith("Hello world", "d")).toBe(true);
+                expect(endsWith("Hello world", "world")).toBe(true);
+                expect(endsWith("Hello world", "W")).toBe(false);
+                expect(endsWith("Who wants to live forever", "er")).toBe(true);
+                expect(endsWith("Who wants to live forever", "ever")).toBe(true);
+                expect(endsWith("Who wants to live forever", "w")).toBe(false);
+            });
+
+            it('Should return undefined if one or both input strings are not valid', () => {
+                console.error = jest.fn();
+                expect(endsWith("Hello world", "")).toBeUndefined();
+                expect(endsWith("Who wants to live forever", undefined)).toBeUndefined();
+                expect(endsWith("Who wants to live forever", null)).toBeUndefined();
+                expect(endsWith("", "A")).toBeUndefined();
+                expect(endsWith(undefined, "B")).toBeUndefined();
+                expect(endsWith(null, "B")).toBeUndefined();
+                expect(console.error).toHaveBeenCalledWith("endsWith: Both arguments must be valid strings.");
+                console.error.mockRestore();
+            });
+        });
     });
 });
