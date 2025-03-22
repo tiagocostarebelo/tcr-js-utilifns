@@ -16,13 +16,13 @@ describe('String Utilities', () => {
 
     // capitalize function test
     describe('capitalize', () => {
-        it('should capitalize the first letter of a string', () => {
+        it('Should capitalize the first letter of a string', () => {
             expect(capitalize('hello')).toBe('Hello');
             expect(capitalize('world')).toBe('World');
             expect(capitalize('hello world')).toBe('Hello world');
         });
 
-        it('should return an empty string if the input is invalid', () => {
+        it('Should return an empty string if the input is invalid', () => {
             console.error = jest.fn();
             expect(capitalize(1234)).toBe("");
             expect(capitalize("")).toBe("");
@@ -35,7 +35,7 @@ describe('String Utilities', () => {
 
     // camelCase function test
     describe('camelCase', () => {
-        it('should converta string to camelCase', () => {
+        it('Should converta string to camelCase', () => {
             expect(camelCase("Hello world")).toBe("helloWorld");
             expect(camelCase("Your name HERE")).toBe("yourNameHere");
             expect(camelCase("New String name here")).toBe("newStringNameHere");
@@ -46,7 +46,7 @@ describe('String Utilities', () => {
             expect(camelCase("string@123$with^456*numbers#789")).toBe("string123With456Numbers789");
         });
 
-        it('should return an empty string if input is invalid', () => {
+        it('Should return an empty string if input is invalid', () => {
             console.error = jest.fn();
             expect(camelCase(1234)).toBe("");
             expect(camelCase("")).toBe("");
@@ -59,7 +59,7 @@ describe('String Utilities', () => {
 
     // kebabCase function test
     describe('kebabCase', () => {
-        it('should converta string to kebabCase', () => {
+        it('Should converta string to kebabCase', () => {
             expect(kebabCase("Hello world")).toBe("hello-world");
             expect(kebabCase("Your name HERE")).toBe("your-name-here");
             expect(kebabCase("New String name here")).toBe("new-string-name-here");
@@ -69,7 +69,7 @@ describe('String Utilities', () => {
             expect(kebabCase("  leading and trailing spaces  ")).toBe("leading-and-trailing-spaces");
         });
 
-        it('should return an empty string if input is invalid', () => {
+        it('Should return an empty string if input is invalid', () => {
             console.error = jest.fn();
             expect(kebabCase(1234)).toBe("");
             expect(kebabCase("")).toBe("");
@@ -92,7 +92,7 @@ describe('String Utilities', () => {
             expect(snakeCase("  leading and trailing spaces  ")).toBe("leading_and_trailing_spaces");
         });
 
-        it('should return an empty string if input is invalid', () => {
+        it('Should return an empty string if input is invalid', () => {
             console.error = jest.fn();
             expect(snakeCase(1234)).toBe("");
             expect(snakeCase("")).toBe("");
@@ -125,6 +125,24 @@ describe('String Utilities', () => {
             expect(truncate("Hello world", -5)).toBe("Hello world");
             expect(truncate("Hello world")).toBe("Hello world");
             expect(console.error).toHaveBeenCalledWith("truncate: Length must be a positive number.");
+            console.error.mockRestore();
+        });
+    });
+
+    // reverseString function test
+    describe('reverseString', () => {
+        it('Should reverse a given string', () => {
+            expect(reverseString("My name is")).toBe("si eman yM");
+            expect(reverseString("123 Follow my lead")).toBe("dael ym wolloF 321");
+        });
+
+        it('Should return an empty string if input is not a valid string', () => {
+            console.error = jest.fn();
+            expect(reverseString("")).toBe("");
+            expect(reverseString(1234)).toBe("");
+            expect(reverseString(undefined)).toBe("");
+            expect(reverseString(null)).toBe("");
+            expect(console.error).toHaveBeenCalledWith("reverseString: Input must be a string.");
             console.error.mockRestore();
         });
     });
