@@ -1,7 +1,7 @@
 /**
  * Checks if an object is empty (has no enumerable properties).
  * @param {Object} obj - The object to check.
- * @returns {boolean} True if the object is empty, false otherwise, null if object is null or not an object
+ * @returns {boolean | null } True if the object is empty, false otherwise, null if object is null or not an object
  * @example
  * isEmpty({}); // true
  * isEmpty({ key: 'value' }); // false
@@ -19,7 +19,7 @@ export function isEmpty(obj) {
  * Merges two objects, with properties from the second object overwriting those in the first.
  * @param {Object} target - The target object to merge into.
  * @param {Object} source - The source object to merge from.
- * @returns {Object} The merged object, or null if one or both arguments are not valid objects.
+ * @returns { Object | null } The merged object, or null if one or both arguments are not valid objects.
  * @example
  * merge({ a: 1, b: 2 }, { b: 3, c: 4 }); // { a: 1, b: 3, c: 4 }
  */
@@ -35,7 +35,7 @@ export function merge(target, source) {
 /**
  * Creates a deep clone of an object.
  * @param {Object} obj - The object to clone.
- * @returns {Object} The deep-cloned object.
+ * @returns { Object | null } The deep-cloned object or null if the argument is not a valid object
  * @example
  * const original = { a: 1, b: { c: 2 } };
  * const clone = deepClone(original);
@@ -45,7 +45,7 @@ export function merge(target, source) {
 export function deepClone(obj) {
     if (obj === null || typeof obj !== 'object') {
         console.error('deepClone: Argument is not a valid object.');
-        return obj;
+        return null;
     }
     return JSON.parse(JSON.stringify(obj));
 }
@@ -55,7 +55,7 @@ export function deepClone(obj) {
  * Checks if an object has a specific property as its own (not inherited).
  * @param {Object} obj - The object to check.
  * @param {string} key - The property name to check for.
- * @returns {boolean} True if the property exists, false otherwise.
+ * @returns {boolean | null } True if the property exists, false otherwise, null if one or both arguments are not valid
  * @example
  * hasKey({ a: 1, b: 2 }, 'b'); // true
  * hasKey({ a: 1, b: 2 }, 'c'); // false
@@ -63,11 +63,11 @@ export function deepClone(obj) {
 export function hasKey(obj, key) {
     if (obj === null || typeof obj !== 'object') {
         console.error('hasKey: First argument is not a valid object.');
-        return false;
+        return null;
     }
     if (typeof key !== 'string') {
         console.error('hasKey: Second argument is not a valid string.');
-        return false;
+        return null;
     }
     return Object.prototype.hasOwnProperty.call(obj, key);
 }
