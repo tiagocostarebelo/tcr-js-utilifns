@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: dateUtils.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: dateUtils.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/**
+ * Gets the day of the week for a given date.
+ * @param {Date} date - The date to check.
+ * @returns {string | undefined} The name of the day (e.g., "Monday"), or undefined if the input is invalid.
+ */
+export function getDayOfTheWeek(date) {
+    if (!(date instanceof Date)) {
+        console.error("getDayOfTheWeek: Input must be a valid Date object.");
+        return undefined;
+    }
+
+    const daysOfWeek = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+    return daysOfWeek[date.getDay()];
+}
+
+/**
+ * Calculates the difference in days between two dates.
+ * @param {Date} date1 - The first date.
+ * @param {Date} date2 - The second date.
+ * @returns {number | undefined} The difference in days, or undefined if the inputs are invalid.
+ */
+export function diffInDays(date1, date2) {
+    if (!(date1 instanceof Date) || !(date2 instanceof Date)) {
+        console.error("diffInDays: Both inputs must be valid Date objects.");
+        return undefined;
+    }
+
+    const timeDiff = Math.abs(date2 - date1);
+    return Math.floor(timeDiff / (1000 * 3600 * 24));
+}
+
+/**
+ * Calculates the difference in months between two dates.
+ * @param {Date} date1 - The first date.
+ * @param {Date} date2 - The second date.
+ * @returns {number | undefined} The difference in months, or undefined if the inputs are invalid.
+ */
+export function diffInMonths(date1, date2) {
+    if (!(date1 instanceof Date) || !(date2 instanceof Date)) {
+        console.error("diffInMonths: Both inputs must be valid Date objects.");
+        return undefined;
+    }
+
+    const yearsDiff = date2.getFullYear() - date1.getFullYear();
+    const monthsDiff = date2.getMonth() - date1.getMonth();
+    return yearsDiff * 12 + monthsDiff;
+}
+
+
+/**
+ * Calculates the difference in years between two dates.
+ * @param {Date} date1 - The first date.
+ * @param {Date} date2 - The second date.
+ * @returns {number | undefined} The difference in years, or undefined if the inputs are invalid.
+ */
+export function diffInYears(date1, date2) {
+    if (!(date1 instanceof Date) || !(date2 instanceof Date)) {
+        console.error("diffInYears: Both inputs must be valid Date objects.");
+        return undefined;
+    }
+
+    return date2.getFullYear() - date1.getFullYear();
+}
+
+/**
+ * Checks if a given year is a leap year.
+ * @param {number} year - The year to check.
+ * @returns {boolean | undefined} True if the year is a leap year, false otherwise, or undefined if the input is invalid.
+ */
+export function isLeapYear(year) {
+    if (typeof year !== 'number' || isNaN(year)) {
+        console.error("isLeapYear: Input must be a valid number.");
+        return undefined;
+    }
+
+    return (year % 4 === 0 &amp;&amp; (year % 100 !== 0 || year % 400 === 0));
+}
+
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#camelCase">camelCase</a></li><li><a href="global.html#capitalize">capitalize</a></li><li><a href="global.html#countOccurrences">countOccurrences</a></li><li><a href="global.html#deepClone">deepClone</a></li><li><a href="global.html#diffInDays">diffInDays</a></li><li><a href="global.html#diffInMonths">diffInMonths</a></li><li><a href="global.html#diffInYears">diffInYears</a></li><li><a href="global.html#endsWith">endsWith</a></li><li><a href="global.html#get">get</a></li><li><a href="global.html#getDayOfTheWeek">getDayOfTheWeek</a></li><li><a href="global.html#getRandomInt">getRandomInt</a></li><li><a href="global.html#hasKey">hasKey</a></li><li><a href="global.html#isAnagram">isAnagram</a></li><li><a href="global.html#isEmpty">isEmpty</a></li><li><a href="global.html#isEven">isEven</a></li><li><a href="global.html#isLeapYear">isLeapYear</a></li><li><a href="global.html#isOdd">isOdd</a></li><li><a href="global.html#kebabCase">kebabCase</a></li><li><a href="global.html#merge">merge</a></li><li><a href="global.html#removeWhitespace">removeWhitespace</a></li><li><a href="global.html#reverseString">reverseString</a></li><li><a href="global.html#roundTo">roundTo</a></li><li><a href="global.html#set">set</a></li><li><a href="global.html#snakeCase">snakeCase</a></li><li><a href="global.html#startsWith">startsWith</a></li><li><a href="global.html#sum">sum</a></li><li><a href="global.html#truncate">truncate</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.4</a> on Sun Mar 23 2025 22:36:50 GMT+0000 (Hora padrão da Europa Ocidental)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

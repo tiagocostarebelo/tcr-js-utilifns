@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: objectUtils.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: objectUtils.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/**
+ * Checks if an object is empty (has no enumerable properties).
+ * @param {Object} obj - The object to check.
+ * @returns {boolean | null } True if the object is empty, false otherwise, null if object is null or not an object
+ * @example
+ * isEmpty({}); // true
+ * isEmpty({ key: 'value' }); // false
+ */
+export function isEmpty(obj) {
+    if (obj === null || typeof obj !== 'object') {
+        console.error('isEmpty: Argument is not a valid object.');
+        return null;
+    }
+    return Object.keys(obj).length === 0;
+}
+
+
+/**
+ * Merges two objects, with properties from the second object overwriting those in the first.
+ * @param {Object} target - The target object to merge into.
+ * @param {Object} source - The source object to merge from.
+ * @returns { Object | null } The merged object, or null if one or both arguments are not valid objects.
+ * @example
+ * merge({ a: 1, b: 2 }, { b: 3, c: 4 }); // { a: 1, b: 3, c: 4 }
+ */
+export function merge(target, source) {
+    if (target === null || typeof target !== 'object' || source === null || typeof source !== 'object') {
+        console.error('merge: Both arguments must be valid objects.');
+        return null;
+    }
+    return { ...target, ...source };
+}
+
+
+/**
+ * Creates a deep clone of an object.
+ * @param {Object} obj - The object to clone.
+ * @returns { Object | null } The deep-cloned object or null if the argument is not a valid object
+ * @example
+ * const original = { a: 1, b: { c: 2 } };
+ * const clone = deepClone(original);
+ * clone.b.c = 3;
+ * console.log(original.b.c); // 2
+ */
+export function deepClone(obj) {
+    if (obj === null || typeof obj !== 'object') {
+        console.error('deepClone: Argument is not a valid object.');
+        return null;
+    }
+    return JSON.parse(JSON.stringify(obj));
+}
+
+
+/**
+ * Checks if an object has a specific property as its own (not inherited).
+ * @param {Object} obj - The object to check.
+ * @param {string} key - The property name to check for.
+ * @returns {boolean | null } True if the property exists, false otherwise, null if one or both arguments are not valid
+ * @example
+ * hasKey({ a: 1, b: 2 }, 'b'); // true
+ * hasKey({ a: 1, b: 2 }, 'c'); // false
+ */
+export function hasKey(obj, key) {
+    if (obj === null || typeof obj !== 'object') {
+        console.error('hasKey: First argument is not a valid object.');
+        return null;
+    }
+    if (typeof key !== 'string') {
+        console.error('hasKey: Second argument is not a valid string.');
+        return null;
+    }
+    return Object.prototype.hasOwnProperty.call(obj, key);
+}
+
+
+/**
+ * Retrieves the value at a given path within an object.
+ * @param {Object} obj - The object to query.
+ * @param {string} path - The path of the property to get.
+ * @param {*} [defaultValue] - The value returned if the path doesn't exist.
+ * @returns {*} The value at the specified path or the default value.
+ * @example
+ * const obj = { a: { b: { c: 3 } } };
+ * get(obj, 'a.b.c'); // 3
+ * get(obj, 'a.b.d', 'default'); // 'default'
+ */
+export function get(obj, path, defaultValue) {
+    if (obj === null || typeof obj !== 'object') {
+        console.error('get: First argument is not a valid object.');
+        return defaultValue;
+    }
+    if (typeof path !== 'string') {
+        console.error('get: Second argument is not a valid string.');
+        return defaultValue;
+    }
+    const pathArray = path.split('.');
+    let result = obj;
+    for (const key of pathArray) {
+        if (result[key] === undefined) {
+            return defaultValue;
+        }
+        result = result[key];
+    }
+    return result;
+}
+
+
+/**
+ * Sets the value at a given path within an object.
+ * @param {Object} obj - The object to modify.
+ * @param {string} path - The path of the property to set.
+ * @param {*} value - The value to set.
+ * @returns {Object} The updated object.
+ * @example
+ * const obj = { a: { b: { c: 3 } } };
+ * set(obj, 'a.b.c', 4);
+ * console.log(obj.a.b.c); // 4
+ * set(obj, 'a.b.d.e', 5);
+ * console.log(obj.a.b.d.e); // 5
+ */
+export function set(obj, path, value) {
+    if (obj === null || typeof obj !== 'object') {
+        console.error('set: First argument is not a valid object.');
+        return obj;
+    }
+    if (typeof path !== 'string') {
+        console.error('set: Second argument is not a valid string.');
+        return obj;
+    }
+    const pathArray = path.split('.');
+    let current = obj;
+    for (let i = 0; i &lt; pathArray.length; i++) {
+        const key = pathArray[i];
+        if (i === pathArray.length - 1) {
+            current[key] = value;
+        } else {
+            if (current[key] === undefined || typeof current[key] !== 'object') {
+                current[key] = {};
+            }
+            current = current[key];
+        }
+    }
+    return obj;
+}
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#camelCase">camelCase</a></li><li><a href="global.html#capitalize">capitalize</a></li><li><a href="global.html#countOccurrences">countOccurrences</a></li><li><a href="global.html#deepClone">deepClone</a></li><li><a href="global.html#diffInDays">diffInDays</a></li><li><a href="global.html#diffInMonths">diffInMonths</a></li><li><a href="global.html#diffInYears">diffInYears</a></li><li><a href="global.html#endsWith">endsWith</a></li><li><a href="global.html#get">get</a></li><li><a href="global.html#getDayOfTheWeek">getDayOfTheWeek</a></li><li><a href="global.html#getRandomInt">getRandomInt</a></li><li><a href="global.html#hasKey">hasKey</a></li><li><a href="global.html#isAnagram">isAnagram</a></li><li><a href="global.html#isEmpty">isEmpty</a></li><li><a href="global.html#isEven">isEven</a></li><li><a href="global.html#isLeapYear">isLeapYear</a></li><li><a href="global.html#isOdd">isOdd</a></li><li><a href="global.html#kebabCase">kebabCase</a></li><li><a href="global.html#merge">merge</a></li><li><a href="global.html#removeWhitespace">removeWhitespace</a></li><li><a href="global.html#reverseString">reverseString</a></li><li><a href="global.html#roundTo">roundTo</a></li><li><a href="global.html#set">set</a></li><li><a href="global.html#snakeCase">snakeCase</a></li><li><a href="global.html#startsWith">startsWith</a></li><li><a href="global.html#sum">sum</a></li><li><a href="global.html#truncate">truncate</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.4</a> on Sun Mar 23 2025 22:36:50 GMT+0000 (Hora padrão da Europa Ocidental)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>
