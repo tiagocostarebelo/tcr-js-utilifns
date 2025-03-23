@@ -23,7 +23,27 @@ describe('Object Utils', () => {
             expect(isEmpty(1234)).toBeNull();
             expect(isEmpty(null)).toBeNull();
             console.error.mockRestore();
-        })
-    })
+        });
+    });
+
+    // merge function test
+    describe('merge', () => {
+        it('Should merge two objects with properties from the second object overwriting those in the first.', () => {
+            const objTarget = { firstName: "John", lastname: "Doe", age: 31 };
+            const objSource = { planet: "Earth", hobbies: "Space travel" };
+            expect(merge(objTarget, objSource)).toEqual({ firstName: 'John', lastname: 'Doe', age: 31, planet: 'Earth', hobbies: 'Space travel' });
+        });
+
+        it('Should return null if one or both arguments are not valid objects', () => {
+            const objTarget = { firstName: "John", lastname: "Doe", age: 31 };
+            const objSource = { planet: "Earth", hobbies: "Space travel" };
+            console.error = jest.fn();
+            expect(merge(objTarget, 1234)).toBeNull();
+            expect(merge(1234, objSource)).toBeNull();
+            expect(merge(objTarget, "object")).toBeNull();
+            expect(merge("object", objSource)).toBeNull();
+            console.error.mockRestore();
+        });
+    });
 
 })

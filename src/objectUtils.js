@@ -19,14 +19,14 @@ export function isEmpty(obj) {
  * Merges two objects, with properties from the second object overwriting those in the first.
  * @param {Object} target - The target object to merge into.
  * @param {Object} source - The source object to merge from.
- * @returns {Object} The merged object.
+ * @returns {Object} The merged object, or null if one or both arguments are not valid objects.
  * @example
  * merge({ a: 1, b: 2 }, { b: 3, c: 4 }); // { a: 1, b: 3, c: 4 }
  */
 export function merge(target, source) {
     if (target === null || typeof target !== 'object' || source === null || typeof source !== 'object') {
         console.error('merge: Both arguments must be valid objects.');
-        return {};
+        return null;
     }
     return { ...target, ...source };
 }
