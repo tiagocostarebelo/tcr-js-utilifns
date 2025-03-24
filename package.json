@@ -1,5 +1,5 @@
 {
-  "name": "js-utilinious",
+  "name": "js-utilifns",
   "version": "1.0.0",
   "description": "JavaScript function utility library",
   "main": "src/index.js",
@@ -22,7 +22,7 @@
   "bugs": {
     "url": "https://github.com/tiagocostarebelo/utility-library/issues"
   },
-  "homepage": "https://github.com/tiagocostarebelo/utility-library#readme",
+  "homepage": "https://tiagocostarebelo.github.io/js-utilifns/",
   "devDependencies": {
     "@babel/core": "^7.26.10",
     "@babel/preset-env": "^7.26.9",

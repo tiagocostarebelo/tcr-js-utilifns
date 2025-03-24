@@ -1,41 +1,46 @@
-**JS Utility Functions Library**
+**js-utilifns**
 ================================
 
-A collection of JavaScript utility functions for common operations such as working with **arrays, dates, numbers, objects, and strings**. This library provides reusable functions to improve productivity and maintainability in JavaScript projects.
+A collection of JavaScript utility functions for common operations on **arrays, dates, numbers, objects, and strings**. This library was built to improve my developer's knowledge of JavaScript while creating a useful set of tools for personal projects and, potentially, for others in the community.  `js-utilifns` aims to provide a consistent and reliable set of functions, reducing the need for repetitive coding.
+
 
 
 **Features**
 ---------------
 
-✔️ Modular utility functions for various data types.\
-✔️ Error handling and input validation included.\
-✔️ Simple and easy-to-use API.\
-✔️ ES6 module-based structure for easy imports.\
-✔️ Well-documented with JSDoc comments.\
-✔️ (Upcoming) Unit tests using Jest.
+*   Functions for manipulating arrays, dates, numbers, objects, and strings.
+*   Each function includes error handling and input validation for increased reliability.
+*   Simple and easy-to-use API with clear JSDoc documentation.
+*   ES6 module-based structure for easy imports in modern JavaScript projects.
+*   Comprehensive unit tests using Jest.
+
 
 
 **Installation**
 -------------------
 
-Clone the repository:
+You can install `js-utilinous` using npm or yarn:
 
 ```
 
-`git clone https://github.com/tiagocostarebelo/js-utilifns.git
-cd js-utilifns`
+npm install js-utilifns
 
 ```
 
-If using **npm** or **yarn**, you can add this project as a dependency by running:
+If using **yarn**:
 
 ```
 
-`npm install https://github.com/tiagocostarebelo/js-utilifns.git
-# OR
-yarn add https://github.com/tiagocostarebelo/js-utilifns.git`
+yarn add js-utilifns
 
 ```
+
+
+
+**Documentation (JSDoc)**
+
+You can [View documentation here](https://tiagocostarebelo.github.io/js-utilifns/)
+
 
 **Usage**
 ------------
@@ -63,6 +68,8 @@ console.log(getRandomInt(1, 10)); // Outputs a random integer between 1 and 10`
 
 ```
 
+
+
 ## Available Utility Functions
 
 ### **Date Utilities (`dateUtils.js`)**
@@ -74,7 +81,6 @@ console.log(getRandomInt(1, 10)); // Outputs a random integer between 1 and 10`
 | `diffInMonths(date1, date2)`| Calculates the number of months between two dates.      |
 | `diffInYears(date1, date2)` | Calculates the number of years between two dates.       |
 | `isLeapYear(year)`          | Checks if a given year is a leap year.                  |
-
 
 
 ### **Number Utilities (`numberUtils.js`)**
@@ -117,13 +123,16 @@ console.log(getRandomInt(1, 10)); // Outputs a random integer between 1 and 10`
 
 
 
-
 **Running Tests**
 ---------------------
 
-(Currently, tests are not implemented, but they will be added using Jest.)
+This library is thoroughly tested using Jest. You can run the tests locally by running:
 
-Once tests are implemented, this section will be updated.
+```
+npm test
+
+```
+
 
 
 **License**
