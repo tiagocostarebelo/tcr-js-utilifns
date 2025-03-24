@@ -1,26 +1,37 @@
 {
   "name": "js-utilifns",
   "version": "1.0.0",
-  "description": "JavaScript function utility library",
-  "main": "src/index.js",
+  "description": "A collection of JavaScript utility functions for common data manipulation and validation tasks.",
+  "main": "index.js",
   "type": "module",
+  "files": [
+    "index.js",
+    "src",
+    "README.md",
+    "LICENSE"
+  ],
   "scripts": {
     "test": "jest",
     "docs": "jsdoc -c jsdoc.config.js"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/tiagocostarebelo/utility-library.git"
+    "url": "git+https://github.com/tiagocostarebelo/js-utilifns.git"
   },
   "keywords": [
-    "utility",
+    "utility functions",
     "javascript",
-    "library"
+    "array",
+    "date",
+    "string",
+    "object",
+    "validation",
+    "data manipulation"
   ],
   "author": "Tiago Costa Rebelo",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/tiagocostarebelo/utility-library/issues"
+    "url": "https://github.com/tiagocostarebelo/js-utilifns/issues"
   },
   "homepage": "https://tiagocostarebelo.github.io/js-utilifns/",
   "devDependencies": {

@@ -1,7 +1,7 @@
 **js-utilifns**
 ================================
 
-A collection of JavaScript utility functions for common operations on **arrays, dates, numbers, objects, and strings**. This library was built to improve my developer's knowledge of JavaScript while creating a useful set of tools for personal projects and, potentially, for others in the community.  `js-utilifns` aims to provide a consistent and reliable set of functions, reducing the need for repetitive coding.
+A collection of JavaScript utility functions for common operations on **dates, numbers, objects, and strings**. This library was built to improve my developer's knowledge of JavaScript while creating a useful set of tools for personal projects and, potentially, for others in the community.  `js-utilifns` aims to provide a consistent and reliable set of functions, reducing the need for repetitive coding.
 
 
 
