@@ -19,7 +19,7 @@ A collection of JavaScript utility functions for common operations on **dates, n
 **Installation**
 -------------------
 
-You can install `js-utilinous` using npm or yarn:
+You can install `js-utilifns` using npm or yarn:
 
 ```
 
