@@ -47,24 +47,37 @@ You can [View documentation here](https://tiagocostarebelo.github.io/js-utilifns
 
 You can **import individual utility functions** as needed:
 
-### **Example: Using `formatDate()` from `dateUtils.js`**
+### **Example: Using `getDayOfTheWeek()` from `dateUtils.js`**
 
 ```
 
-`import { formatDate } from "./src/dateUtils.js";
+`import { getDayOfTheWeek } from ".js-utilifns";
 
-console.log(formatDate(new Date(), "YYYY-MM-DD")); // Outputs: "2024-03-07"`
-
-```
-
-### **Example: Using `getRandomInt()` from `mathUtils.js`**
-
+console.log(getDayOfTheWeek(new Date("2025-03-26"))); // Outputs: "Wednesday"
+console.log(getDayOfTheWeek(new Date("2020,10,01"))); // Outputs: "Thursday"`
 
 ```
 
-`import { getRandomInt } from "./src/mathUtils.js";
+### **Example: Using `getRandomInt()` from `numberUtils.js`**
+
+
+```
+
+`import { getRandomInt } from "js-utilifns";
 
 console.log(getRandomInt(1, 10)); // Outputs a random integer between 1 and 10`
+
+```
+
+### **Example: Using `hasKey()` from `objectUtils.js`**
+
+
+```
+
+`import { hasKey } from "js-utilifns";
+
+const newObject = {name: "John Doe", age: 42};
+console.log(hasKey(newObject, "name")); // Outputs: true`
 
 ```
 
