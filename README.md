@@ -51,10 +51,10 @@ You can **import individual utility functions** as needed:
 
 ```
 
-`import { getDayOfTheWeek } from ".js-utilifns";
+import { getDayOfTheWeek } from ".js-utilifns";
 
 console.log(getDayOfTheWeek(new Date("2025-03-26"))); // Outputs: "Wednesday"
-console.log(getDayOfTheWeek(new Date("2020,10,01"))); // Outputs: "Thursday"`
+console.log(getDayOfTheWeek(new Date("2020,10,01"))); // Outputs: "Thursday"
 
 ```
 
@@ -63,9 +63,9 @@ console.log(getDayOfTheWeek(new Date("2020,10,01"))); // Outputs: "Thursday"`
 
 ```
 
-`import { getRandomInt } from "js-utilifns";
+import { getRandomInt } from "js-utilifns";
 
-console.log(getRandomInt(1, 10)); // Outputs a random integer between 1 and 10`
+console.log(getRandomInt(1, 10)); // Outputs a random integer between 1 and 10
 
 ```
 
@@ -74,10 +74,10 @@ console.log(getRandomInt(1, 10)); // Outputs a random integer between 1 and 10`
 
 ```
 
-`import { hasKey } from "js-utilifns";
+import { hasKey } from "js-utilifns";
 
 const newObject = {name: "John Doe", age: 42};
-console.log(hasKey(newObject, "name")); // Outputs: true`
+console.log(hasKey(newObject, "name")); // Outputs: true
 
 ```
 
