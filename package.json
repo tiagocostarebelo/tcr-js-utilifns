@@ -1,6 +1,6 @@
 {
   "name": "js-utilifns",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A collection of JavaScript utility functions (Date, Numbers, Objects and Strings) for basic data manipulation and validation tasks.",
   "main": "index.js",
   "type": "module",
