@@ -45,4 +45,19 @@ export function isArrayEqual(arr1, arr2) {
     }
 
     return true;
+};
+
+/**
+ * Splits an array into smaller arrays ("chunks") of a specified size.
+ *
+ * @param {Array} array - The array to be chunked.
+ * @param {number} size - The size of each chunk (must be a positive integer).
+ * @returns {Array | undefined} An array containing the chunked arrays, or undefined if inputs are invalid.
+ *
+ * @example
+ * chunkArray([1, 2, 3, 4, 5], 2); // Returns: [[1, 2], [3, 4], [5]]
+ * chunkArray('not-an-array', 2);  // Returns: undefined
+ */
+export default function chunkArray(arr, size) {
+
 }

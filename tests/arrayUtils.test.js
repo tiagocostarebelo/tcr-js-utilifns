@@ -56,4 +56,11 @@ describe('Array Utilities', () => {
             expect(isArrayEqual(["one", { name: "John" }], ["one", { name: "John" }])).toBe(false);
         })
     });
+
+    // arrayChunk() function test
+    describe('arrayChunk', () => {
+        it('Should create chunks of a specific size', () => {
+
+        })
+    })
 });
