@@ -106,6 +106,7 @@ export function removeDuplicates(array) {
  * @returns {Array | undefined} An array with no falsy values or undefined if input is invalid.
  * 
  * @example
+ * removeDuplicates('not-an-array'); // Returns: undefined
  * removeFalsy([1, "Ben", null, {"key": "value"}, undefined, 23, 0, true, false]) // Returns: [1, 'Ben', {…}, 23, true]
  */
 export function removeFalsy(array) {
@@ -115,6 +116,26 @@ export function removeFalsy(array) {
     }
 
     return array.filter(Boolean);
+}
+
+/**
+ * Returns the elements in the first array that are not present in the second array.
+ * Case Sensitive comparison. Check examples.
+ * 
+ * @param { Array } arr1 - The first array being entered as an argument
+ * @param { Array } arr2 - The second array being entered as an argument
+ * @returns { Array | undefined } Returns a new array with the elements in array1 that are not present in array2, undefined if one or both the arrays are not valid.
+ * @example
+ * difference([1, 2, 3, 4, 5, 6],[2, 4, 6]); // Returns: [1, 3, 5]
+ * difference(["Test", "my", "array"],["My", "Array"]); // Returns: ['Test', 'my', 'array']
+ */
+export function difference(arr1, arr2) {
+    if (!Array.isArray(arr1) || !Array.isArray(arr2)) {
+        console.error('difference: Argument is not a valid array.');
+        return undefined;
+    }
+
+    return arr1.filter((item) => !arr2.includes(item));
 }
 
 

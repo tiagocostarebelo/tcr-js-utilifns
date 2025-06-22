@@ -3,7 +3,8 @@ import {
     isArrayEmpty,
     isArrayEqual,
     removeDuplicates,
-    removeFalsy
+    removeFalsy,
+    difference
 } from '../src/arrayUtils';
 
 describe('Array Utilities', () => {
@@ -125,6 +126,26 @@ describe('Array Utilities', () => {
 
         it('Should return the same array if there are no falsy values', () => {
             expect(removeFalsy([1, "text", true, {}, []])).toEqual([1, "text", true, {}, []]);
+        });
+    });
+
+    //difference function test
+    describe('difference', () => {
+        it('Should return undefined for invalid argument values', () => {
+            console.error = jest.fn();
+            expect(difference('I am a string, not an array', [1, 2, 3])).toBeUndefined();
+            expect(difference([1, 2, 3], 'I am a string, not an array')).toBeUndefined();
+            expect(difference({ key: "value" }, [1, 2, 3])).toBeUndefined();
+            expect(console.error).toHaveBeenCalledWith('difference: Argument is not a valid array.');
+            console.error.mockRestore();
+        });
+
+        it('Should return an array with the values present in array1 that are not in array2', () => {
+            expect(difference([1, 2, 3], [2])).toEqual([1, 3]);
+            expect(difference([], [1, 2, 3])).toEqual([]);
+            expect(difference([1, 2, 3], [])).toEqual([1, 2, 3]);
+            expect(difference([1, 2, "3"], [3])).toEqual([1, 2, "3"]);
+            expect(difference(["Test", "my", "array"], ["My", "Array"])).toEqual(['Test', 'my', 'array']);
         });
     });
 });
