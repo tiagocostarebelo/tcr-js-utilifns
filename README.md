@@ -1,7 +1,7 @@
 **js-utilifns**
 ================================
 
-A collection of JavaScript utility functions for common operations on **dates, numbers, objects, and strings**. This library was built to improve my developer's knowledge of JavaScript while creating a useful set of tools for personal projects and, potentially, for others in the community.  `js-utilifns` aims to provide a consistent and reliable set of functions, reducing the need for repetitive coding.
+A collection of JavaScript utility functions for common operations on **dates, numbers, objects, arrays and strings**. This library was built to improve my developer's knowledge of JavaScript while creating a useful set of tools for personal projects and, potentially, for others in the community.  `js-utilifns` aims to provide a consistent and reliable set of functions, reducing the need for repetitive coding.
 
 
 
@@ -134,6 +134,19 @@ console.log(hasKey(newObject, "name")); // Outputs: true
 | `endsWith(str, suffix)`      | Checks if a string ends with a given substring. Returns `true` if it ends with the suffix, `false` otherwise.     |
 | `removeWhitespace(str)`      | Removes all whitespace from a string. Returns the string without whitespace.                                      |
 
+
+### **Array Utilities (`arrayUtils.js`)**
+
+| Function                     | Description                                                                                                       |
+|------------------------------|-------------------------------------------------------------------------------------------------------------------|
+| `isArrayEmpty(arr)`          | Checks if an array is empty .                                                                                     |
+| `isArrayEqual(arr1, arr2)`   | Performs a shallow comparison to check if two arrays are equal in both value and order.                           |
+| `chunkArray(array, size)`    | Splits an array into smaller arrays ("chunks") of a specified size.                                               |
+| `removeDuplicates(array)`    | Removes duplicate primitive values from an array                                                                  |
+| `removeFalsy(array)`         | Remove falsy values from an array                                                                                 |
+| `difference(arr1, arr2)`     | Returns the elements in the first array that are not present in the second array. Case-sensitive comparison.      |
+| `intersection(arr1, arr2)`   | Returns common elements between two arrays. Case-sensitive comparison.                                            |
+| `hasDuplicates(array)`       | Checks if an array contains duplicate values                                                                      |
 
 
 **Running Tests**
