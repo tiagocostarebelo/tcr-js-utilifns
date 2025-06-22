@@ -39,7 +39,7 @@ yarn add js-utilifns
 
 **Documentation (JSDoc)**
 
-You can [View documentation here](https://tiagocostarebelo.github.io/js-utilifns/)
+You can [View documentation here](https://js-utilifns-documentation.netlify.app/)
 
 
 **Usage**
