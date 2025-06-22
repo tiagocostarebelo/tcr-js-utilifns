@@ -438,6 +438,196 @@
     
 
     
+    <h4 class="name" id="chunkArray"><span class="type-signature"></span>chunkArray<span class="signature">(array, size)</span><span class="type-signature"> &rarr; {Array|undefined}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    <p>Splits an array into smaller arrays (&quot;chunks&quot;) of a specified size.</p>
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>array</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Array</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The array to be chunked.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>size</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The size of each chunk (must be a positive integer).</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="arrayUtils.js.html">arrayUtils.js</a>, <a href="arrayUtils.js.html#line61">line 61</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    <p>An array containing the chunked arrays, or undefined if inputs are invalid.</p>
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Array</span>
+|
+
+<span class="param-type">undefined</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+    <h5>Example</h5>
+    
+    <pre class="prettyprint"><code>chunkArray([1, 2, 3, 4, 5], 2); // Returns: [[1, 2], [3, 4], [5]]chunkArray('not-an-array', 2);  // Returns: undefined</code></pre>
+
+
+
+        
+            
+
+    
+
+    
     <h4 class="name" id="countOccurrences"><span class="type-signature"></span>countOccurrences<span class="signature">(str, sub)</span><span class="type-signature"> &rarr; {number|undefined}</span></h4>
     
 
@@ -1350,6 +1540,197 @@
     
 
     
+    <h4 class="name" id="difference"><span class="type-signature"></span>difference<span class="signature">(arr1, arr2)</span><span class="type-signature"> &rarr; {Array|undefined}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    <p>Returns the elements in the first array that are not present in the second array.
+Case-sensitive comparison. Objects and arrays are compared by reference.</p>
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>arr1</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Array</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The first array being entered as an argument</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>arr2</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Array</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The second array being entered as an argument</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="arrayUtils.js.html">arrayUtils.js</a>, <a href="arrayUtils.js.html#line132">line 132</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    <p>An new array with the elements in array1 that are not present in array2, undefined if one or both the arrays are not valid.</p>
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Array</span>
+|
+
+<span class="param-type">undefined</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+    <h5>Example</h5>
+    
+    <pre class="prettyprint"><code>difference([1, 2, 3, 4, 5, 6],[2, 4, 6]); // Returns: [1, 3, 5]difference(["Test", "my", "array"],["My", "Array"]); // Returns: ['Test', 'my', 'array']</code></pre>
+
+
+
+        
+            
+
+    
+
+    
     <h4 class="name" id="endsWith"><span class="type-signature"></span>endsWith<span class="signature">(str, suffix)</span><span class="type-signature"> &rarr; {boolean|undefined}</span></h4>
     
 
@@ -2125,6 +2506,173 @@
     
 
     
+    <h4 class="name" id="hasDuplicates"><span class="type-signature"></span>hasDuplicates<span class="signature">(array)</span><span class="type-signature"> &rarr; {boolean|undefined}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    <p>Checks if an array contains duplicate values</p>
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>array</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Array</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The array to check for duplicate values</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="arrayUtils.js.html">arrayUtils.js</a>, <a href="arrayUtils.js.html#line174">line 174</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    <p>Returns true if array contains duplicate values, false if not, or undefined if either input is invalid.</p>
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">boolean</span>
+|
+
+<span class="param-type">undefined</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+    <h5>Example</h5>
+    
+    <pre class="prettyprint"><code>hasDuplicates([1, 2, 2, 5, 10, 10]); // Returns: truehasDuplicates(["John", "Alice", "Mark"]); // Returns: falsehasDuplicates('not-an-array'); // Returns: undefined</code></pre>
+
+
+
+        
+            
+
+    
+
+    
     <h4 class="name" id="hasKey"><span class="type-signature"></span>hasKey<span class="signature">(obj, key)</span><span class="type-signature"> &rarr; {boolean|null}</span></h4>
     
 
@@ -2315,6 +2863,197 @@
     
 
     
+    <h4 class="name" id="intersection"><span class="type-signature"></span>intersection<span class="signature">(arr1, arr2)</span><span class="type-signature"> &rarr; {Array|undefined}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    <p>Returns common elements between two arrays.
+Case-sensitive comparison. Objects and arrays are compared by reference.</p>
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>arr1</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Array</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The first array being entered as an argument</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>arr2</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Array</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The second array being entered as an argument</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="arrayUtils.js.html">arrayUtils.js</a>, <a href="arrayUtils.js.html#line153">line 153</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    <p>An array of elements common to both input arrays, or undefined if either input is invalid.</p>
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Array</span>
+|
+
+<span class="param-type">undefined</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+    <h5>Example</h5>
+    
+    <pre class="prettyprint"><code>intersection([1, 2, 3, 5, 8, 13, 21, 34], [2, 5, 7, 8, 15, 21, 34]); // Returns [2, 5, 8, 21, 34];intersection(["John", "Alice", "Ben", "Forest"], ["Alice", "Jermaine", "Forest", "Josh"]); //Returns: ["Alice", "Forest"];</code></pre>
+
+
+
+        
+            
+
+    
+
+    
     <h4 class="name" id="isAnagram"><span class="type-signature"></span>isAnagram<span class="signature">(str1, str2)</span><span class="type-signature"> &rarr; {boolean|undefined}</span></h4>
     
 
@@ -2496,6 +3235,364 @@
     <h5>Example</h5>
     
     <pre class="prettyprint"><code>isAnagram("listen", "silent"); // trueisAnagram("hello", "world"); // false</code></pre>
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="isArrayEmpty"><span class="type-signature"></span>isArrayEmpty<span class="signature">(array)</span><span class="type-signature"> &rarr; {boolean|undefined}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    <p>Checks if an array is empty</p>
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>array</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Array</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The array to be checked</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="arrayUtils.js.html">arrayUtils.js</a>, <a href="arrayUtils.js.html#line9">line 9</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    <p>True if array is empty, false if not, undefined if input provided is not a valid array.</p>
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">boolean</span>
+|
+
+<span class="param-type">undefined</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+    <h5>Example</h5>
+    
+    <pre class="prettyprint"><code>isArrayEmpty([]); // trueisArrayEmpty(['John', 'Maria', 'Joseph']); // false</code></pre>
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="isArrayEqual"><span class="type-signature"></span>isArrayEqual<span class="signature">(arr1, arr2)</span><span class="type-signature"> &rarr; {boolean|undefined}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    <p>Performs a shallow comparison to check if two arrays are equal in both value and order.
+Only compares primitive values (e.g., strings, numbers, booleans).</p>
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>arr1</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Array</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The first array being entered as an argument</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>arr2</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Array</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The second array being entered as an argument</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="arrayUtils.js.html">arrayUtils.js</a>, <a href="arrayUtils.js.html#line31">line 31</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    <p>True if the provided Arrays are equal in their values, false if they have different values, undefined if one or both the arrays are not valid.</p>
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">boolean</span>
+|
+
+<span class="param-type">undefined</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+    <h5>Example</h5>
+    
+    <pre class="prettyprint"><code>isArrayEqual([1, 2, 3], [1, 2, 3]); // trueisArrayEqual([1, 2, 3], [1, 2, "3"]); // falseisArrayEqual([1, 2], [2, 1]); // falseisArrayEqual([1, 2], 'not-an-array'); // undefinedisArrayEqual(["one", { name: "John" }], ["one", { name: "John" }]); // false (different object references)</code></pre>
 
 
 
@@ -3506,6 +4603,341 @@
     <h5>Example</h5>
     
     <pre class="prettyprint"><code>merge({ a: 1, b: 2 }, { b: 3, c: 4 }); // { a: 1, b: 3, c: 4 }</code></pre>
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="removeDuplicates"><span class="type-signature"></span>removeDuplicates<span class="signature">(array)</span><span class="type-signature"> &rarr; {Array|undefined}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    <p>Removes duplicate primitive values from an array</p>
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>array</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Array</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The array to check for duplicate values</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="arrayUtils.js.html">arrayUtils.js</a>, <a href="arrayUtils.js.html#line91">line 91</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    <p>An array with no duplicate values or undefined if input is invalid.</p>
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Array</span>
+|
+
+<span class="param-type">undefined</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+    <h5>Example</h5>
+    
+    <pre class="prettyprint"><code>removeDuplicates([1, 2, 2, 3, 4, 5, 5, 6]); // Returns: [1, 2, 3, 4, 5, 6]removeDuplicates('not-an-array'); // Returns: undefined</code></pre>
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="removeFalsy"><span class="type-signature"></span>removeFalsy<span class="signature">(array)</span><span class="type-signature"> &rarr; {Array|undefined}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    <p>Remove falsy values from an array</p>
+<p>Falsy values include: <code>false</code>, <code>0</code>, <code>''</code> (empty string), <code>null</code>, <code>undefined</code>, and <code>NaN</code>.</p>
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>array</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Array</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The array to check for falsy values</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="arrayUtils.js.html">arrayUtils.js</a>, <a href="arrayUtils.js.html#line112">line 112</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    <p>An array with no falsy values or undefined if input is invalid.</p>
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Array</span>
+|
+
+<span class="param-type">undefined</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+    <h5>Example</h5>
+    
+    <pre class="prettyprint"><code>removeDuplicates('not-an-array'); // Returns: undefinedremoveFalsy([1, "Ben", null, {"key": "value"}, undefined, 23, 0, true, false]) // Returns: [1, 'Ben', {…}, 23, true]</code></pre>
 
 
 
@@ -4960,13 +6392,13 @@
 </div>
 
 <nav>
-    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#camelCase">camelCase</a></li><li><a href="global.html#capitalize">capitalize</a></li><li><a href="global.html#countOccurrences">countOccurrences</a></li><li><a href="global.html#deepClone">deepClone</a></li><li><a href="global.html#diffInDays">diffInDays</a></li><li><a href="global.html#diffInMonths">diffInMonths</a></li><li><a href="global.html#diffInYears">diffInYears</a></li><li><a href="global.html#endsWith">endsWith</a></li><li><a href="global.html#get">get</a></li><li><a href="global.html#getDayOfTheWeek">getDayOfTheWeek</a></li><li><a href="global.html#getRandomInt">getRandomInt</a></li><li><a href="global.html#hasKey">hasKey</a></li><li><a href="global.html#isAnagram">isAnagram</a></li><li><a href="global.html#isEmpty">isEmpty</a></li><li><a href="global.html#isEven">isEven</a></li><li><a href="global.html#isLeapYear">isLeapYear</a></li><li><a href="global.html#isOdd">isOdd</a></li><li><a href="global.html#kebabCase">kebabCase</a></li><li><a href="global.html#merge">merge</a></li><li><a href="global.html#removeWhitespace">removeWhitespace</a></li><li><a href="global.html#reverseString">reverseString</a></li><li><a href="global.html#roundTo">roundTo</a></li><li><a href="global.html#set">set</a></li><li><a href="global.html#snakeCase">snakeCase</a></li><li><a href="global.html#startsWith">startsWith</a></li><li><a href="global.html#sum">sum</a></li><li><a href="global.html#truncate">truncate</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#camelCase">camelCase</a></li><li><a href="global.html#capitalize">capitalize</a></li><li><a href="global.html#chunkArray">chunkArray</a></li><li><a href="global.html#countOccurrences">countOccurrences</a></li><li><a href="global.html#deepClone">deepClone</a></li><li><a href="global.html#diffInDays">diffInDays</a></li><li><a href="global.html#diffInMonths">diffInMonths</a></li><li><a href="global.html#diffInYears">diffInYears</a></li><li><a href="global.html#difference">difference</a></li><li><a href="global.html#endsWith">endsWith</a></li><li><a href="global.html#get">get</a></li><li><a href="global.html#getDayOfTheWeek">getDayOfTheWeek</a></li><li><a href="global.html#getRandomInt">getRandomInt</a></li><li><a href="global.html#hasDuplicates">hasDuplicates</a></li><li><a href="global.html#hasKey">hasKey</a></li><li><a href="global.html#intersection">intersection</a></li><li><a href="global.html#isAnagram">isAnagram</a></li><li><a href="global.html#isArrayEmpty">isArrayEmpty</a></li><li><a href="global.html#isArrayEqual">isArrayEqual</a></li><li><a href="global.html#isEmpty">isEmpty</a></li><li><a href="global.html#isEven">isEven</a></li><li><a href="global.html#isLeapYear">isLeapYear</a></li><li><a href="global.html#isOdd">isOdd</a></li><li><a href="global.html#kebabCase">kebabCase</a></li><li><a href="global.html#merge">merge</a></li><li><a href="global.html#removeDuplicates">removeDuplicates</a></li><li><a href="global.html#removeFalsy">removeFalsy</a></li><li><a href="global.html#removeWhitespace">removeWhitespace</a></li><li><a href="global.html#reverseString">reverseString</a></li><li><a href="global.html#roundTo">roundTo</a></li><li><a href="global.html#set">set</a></li><li><a href="global.html#snakeCase">snakeCase</a></li><li><a href="global.html#startsWith">startsWith</a></li><li><a href="global.html#sum">sum</a></li><li><a href="global.html#truncate">truncate</a></li></ul>
 </nav>
 
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.4</a> on Sun Mar 23 2025 22:36:50 GMT+0000 (Hora padrão da Europa Ocidental)
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.4</a> on Mon Jun 23 2025 00:40:41 GMT+0100 (Hora de verão da Europa Ocidental)
 </footer>
 
 <script> prettyPrint(); </script>
