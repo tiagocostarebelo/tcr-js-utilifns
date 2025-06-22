@@ -79,8 +79,8 @@ export function chunkArray(array, size) {
 }
 
 /**
- * 
  * Removes duplicate primitive values from an array
+ * 
  * @param {Array} array - The array to check for duplicate values
  * @returns {Array | undefined} An array with no duplicate values or undefined if input is invalid.
  * 
@@ -95,6 +95,26 @@ export function removeDuplicates(array) {
     }
 
     return array.filter((element, index) => array.indexOf(element) === index)
+}
+
+/**
+ * Remove falsy values from an array
+ * 
+ * Falsy values include: `false`, `0`, `''` (empty string), `null`, `undefined`, and `NaN`.
+ * 
+ * @param {Array} array - The array to check for falsy values
+ * @returns {Array | undefined} An array with no falsy values or undefined if input is invalid.
+ * 
+ * @example
+ * removeFalsy([1, "Ben", null, {"key": "value"}, undefined, 23, 0, true, false]) // Returns: [1, 'Ben', {…}, 23, true]
+ */
+export function removeFalsy(array) {
+    if (!Array.isArray(array)) {
+        console.error('removeFalsy: Argument is not a valid array.');
+        return undefined;
+    }
+
+    return array.filter(Boolean);
 }
 
 
