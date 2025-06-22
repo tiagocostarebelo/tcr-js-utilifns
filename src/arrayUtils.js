@@ -159,3 +159,25 @@ export function intersection(arr1, arr2) {
     return arr1.filter((item) => arr2.includes(item));
 }
 
+
+/**
+ * Checks if an array contains duplicate values
+ * 
+ * @param { Array } array - The array to check for duplicate values
+ * @returns { boolean | undefined } Returns true if array contains duplicate values, false if not, or undefined if either input is invalid.
+ * 
+ * @example
+ * hasDuplicates([1, 2, 2, 5, 10, 10]); // Returns: true
+ * hasDuplicates(["John", "Alice", "Mark"]); // Returns: false
+ * hasDuplicates('not-an-array'); // Returns: undefined
+ */
+export function hasDuplicates(array) {
+    if (!Array.isArray(array)) {
+        console.error('hasDuplicates: Argument is not a valid array.');
+        return undefined;
+    }
+
+    return new Set(array).size !== array.length;
+
+}
+

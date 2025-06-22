@@ -5,7 +5,8 @@ import {
     removeDuplicates,
     removeFalsy,
     difference,
-    intersection
+    intersection,
+    hasDuplicates
 } from '../src/arrayUtils';
 
 describe('Array Utilities', () => {
@@ -171,6 +172,27 @@ describe('Array Utilities', () => {
             expect(intersection([1, 2], [3, 4])).toEqual([]);
             expect(intersection([3], [1, 2])).toEqual([]);
             expect(intersection([1, 2], [6, 7])).toEqual([]);
+        });
+    });
+
+    //hasDuplicates function test
+    describe('hasDuplicates', () => {
+        it('Should return undefined for invalid input', () => {
+            console.error = jest.fn();
+            expect(hasDuplicates('string')).toBeUndefined();
+            expect(hasDuplicates({})).toBeUndefined();
+            expect(console.error).toHaveBeenCalledWith('hasDuplicates: Argument is not a valid array.');
+            console.error.mockRestore();
+        });
+
+        it('Should return true if array contains duplicates', () => {
+            expect(hasDuplicates([1, 2, 2, 5, 10, 10])).toBe(true);
+            expect(hasDuplicates(["a", "b", "a"])).toBe(true);
+        });
+
+        it('Should return false if array has only unique values', () => {
+            expect(hasDuplicates([1, 2, 3, 4])).toBe(false);
+            expect(hasDuplicates(["a", "b", "c"])).toBe(false);
         });
     });
 });
