@@ -58,6 +58,26 @@ export function isArrayEqual(arr1, arr2) {
  * chunkArray([1, 2, 3, 4, 5], 2); // Returns: [[1, 2], [3, 4], [5]]
  * chunkArray('not-an-array', 2);  // Returns: undefined
  */
-export default function chunkArray(arr, size) {
+export function chunkArray(array, size) {
+    if (!Array.isArray(array)) {
+        console.error('chunkArray: Argument is not a valid array.');
+        return undefined;
+    }
 
+    if (typeof size !== 'number' || isNaN(size) || size <= 0 || !Number.isInteger(size)) {
+        console.error('chunkArray: Size needs to be a positive integer.');
+        return undefined;
+    }
+
+    const newChunkArray = []
+
+    for (let i = 0; i < array.length; i += size) {
+        newChunkArray.push(array.slice(i, i + size));
+    }
+
+    return newChunkArray;
 }
+
+
+
+

@@ -1,4 +1,5 @@
 import {
+    chunkArray,
     isArrayEmpty,
     isArrayEqual
 } from '../src/arrayUtils';
@@ -17,8 +18,8 @@ describe('Array Utilities', () => {
 
         it('Should return undefined for invalid array', () => {
             console.error = jest.fn();
-            expect(isArrayEmpty('I am a string, not an array')).toBeUndefined;
-            expect(isArrayEmpty({ key: "value" })).toBeUndefined;
+            expect(isArrayEmpty('I am a string, not an array')).toBeUndefined();
+            expect(isArrayEmpty({ key: "value" })).toBeUndefined();
             expect(console.error).toHaveBeenCalledWith('isArrayEmpty: Argument is not a valid array.');
             console.error.mockRestore();
         });
@@ -28,9 +29,9 @@ describe('Array Utilities', () => {
     describe('isArrayEqual', () => {
         it('Should return undefined for invalid argument array', () => {
             console.error = jest.fn();
-            expect(isArrayEqual('I am a string, not an array', [1, 2, 3])).toBeUndefined;
-            expect(isArrayEqual([1, 2, 3], 'I am a string, not an array')).toBeUndefined;
-            expect(isArrayEqual({ key: "value" })).toBeUndefined;
+            expect(isArrayEqual('I am a string, not an array', [1, 2, 3])).toBeUndefined();
+            expect(isArrayEqual([1, 2, 3], 'I am a string, not an array')).toBeUndefined();
+            expect(isArrayEqual({ key: "value" })).toBeUndefined();
             expect(console.error).toHaveBeenCalledWith('isArrayEqual: Argument is not a valid array.');
             console.error.mockRestore();
         });
@@ -57,10 +58,31 @@ describe('Array Utilities', () => {
         })
     });
 
-    // arrayChunk() function test
-    describe('arrayChunk', () => {
-        it('Should create chunks of a specific size', () => {
+    // chunkArray function test
+    describe('chunkArray', () => {
+        it('Should return undefined for invalid argument array', () => {
+            console.error = jest.fn();
+            expect(chunkArray('I am a string', 1)).toBeUndefined();
+            expect(chunkArray({ key: "value" }, 2)).toBeUndefined();
+            expect(console.error).toHaveBeenCalledWith('chunkArray: Argument is not a valid array.');
+            console.error.mockRestore();
+        });
 
-        })
-    })
+        it('Should return undefined for invalid argument size', () => {
+            console.error = jest.fn();
+            expect(chunkArray([1, 2, 3, 4, 5], 'Not a number')).toBeUndefined();
+            expect(chunkArray([1, 2, 3, 4, 5], { key: "value" })).toBeUndefined();
+            expect(chunkArray(["A", "B", "C"], true)).toBeUndefined();
+            expect(chunkArray([1, 2, 3], -2)).toBeUndefined();
+            expect(console.error).toHaveBeenCalledWith('chunkArray: Size needs to be a positive integer.');
+            console.error.mockRestore();
+        });
+
+        it('Should split the array correctly into chunks', () => {
+            expect(chunkArray([1, 2, 3, 4, 5], 2)).toEqual([[1, 2], [3, 4], [5]]);
+            expect(chunkArray([1, 2, 3, 4], 2)).toEqual([[1, 2], [3, 4]]);
+            expect(chunkArray([1, 2], 3)).toEqual([[1, 2]]);
+            expect(chunkArray([], 2)).toEqual([]);
+        });
+    });
 });
