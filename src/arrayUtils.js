@@ -120,11 +120,11 @@ export function removeFalsy(array) {
 
 /**
  * Returns the elements in the first array that are not present in the second array.
- * Case Sensitive comparison. Check examples.
+ * Case-sensitive comparison. Objects and arrays are compared by reference.
  * 
  * @param { Array } arr1 - The first array being entered as an argument
  * @param { Array } arr2 - The second array being entered as an argument
- * @returns { Array | undefined } Returns a new array with the elements in array1 that are not present in array2, undefined if one or both the arrays are not valid.
+ * @returns { Array | undefined } An new array with the elements in array1 that are not present in array2, undefined if one or both the arrays are not valid.
  * @example
  * difference([1, 2, 3, 4, 5, 6],[2, 4, 6]); // Returns: [1, 3, 5]
  * difference(["Test", "my", "array"],["My", "Array"]); // Returns: ['Test', 'my', 'array']
@@ -138,6 +138,24 @@ export function difference(arr1, arr2) {
     return arr1.filter((item) => !arr2.includes(item));
 }
 
+/**
+ * Returns common elements between two arrays.
+ * Case-sensitive comparison. Objects and arrays are compared by reference.
+ * 
+ * @param { Array } arr1 - The first array being entered as an argument
+ * @param { Array } arr2 - The second array being entered as an argument
+ * @returns { Array | undefined } An array of elements common to both input arrays, or undefined if either input is invalid.
+ * 
+ * @example
+ * intersection([1, 2, 3, 5, 8, 13, 21, 34], [2, 5, 7, 8, 15, 21, 34]); // Returns [2, 5, 8, 21, 34];
+ * intersection(["John", "Alice", "Ben", "Forest"], ["Alice", "Jermaine", "Forest", "Josh"]); //Returns: ["Alice", "Forest"];
+ */
+export function intersection(arr1, arr2) {
+    if (!Array.isArray(arr1) || !Array.isArray(arr2)) {
+        console.error('intersection: Argument is not a valid array.');
+        return undefined;
+    }
 
-
+    return arr1.filter((item) => arr2.includes(item));
+}
 

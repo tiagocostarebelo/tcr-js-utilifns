@@ -4,7 +4,8 @@ import {
     isArrayEqual,
     removeDuplicates,
     removeFalsy,
-    difference
+    difference,
+    intersection
 } from '../src/arrayUtils';
 
 describe('Array Utilities', () => {
@@ -146,6 +147,30 @@ describe('Array Utilities', () => {
             expect(difference([1, 2, 3], [])).toEqual([1, 2, 3]);
             expect(difference([1, 2, "3"], [3])).toEqual([1, 2, "3"]);
             expect(difference(["Test", "my", "array"], ["My", "Array"])).toEqual(['Test', 'my', 'array']);
+        });
+    });
+
+    //intersection function test
+    describe('intersection', () => {
+        it('Should return undefined for invalid argument values', () => {
+            console.error = jest.fn();
+            expect(intersection('I am a string, not an array', [1, 2, 3])).toBeUndefined();
+            expect(intersection([1, 2, 3], 'I am a string, not an array')).toBeUndefined();
+            expect(intersection({ key: "value" }, [1, 2, 3])).toBeUndefined();
+            expect(console.error).toHaveBeenCalledWith('intersection: Argument is not a valid array.');
+            console.error.mockRestore();
+        });
+
+        it('Should return common elements between arrays', () => {
+            expect(intersection([1, 2, 3], [2, 3, 4])).toEqual([2, 3]);
+            expect(intersection(["a", "b"], ["b", "c"])).toEqual(["b"]);
+            expect(intersection([true, false], [false])).toEqual([false]);
+        });
+
+        it('Should return empty array if no common elements', () => {
+            expect(intersection([1, 2], [3, 4])).toEqual([]);
+            expect(intersection([3], [1, 2])).toEqual([]);
+            expect(intersection([1, 2], [6, 7])).toEqual([]);
         });
     });
 });
