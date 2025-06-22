@@ -78,6 +78,25 @@ export function chunkArray(array, size) {
     return newChunkArray;
 }
 
+/**
+ * 
+ * Removes duplicate primitive values from an array
+ * @param {Array} array - The array to check for duplicate values
+ * @returns {Array | undefined} An array with no duplicate values or undefined if input is invalid.
+ * 
+ * @example
+ * removeDuplicates([1, 2, 2, 3, 4, 5, 5, 6]); // Returns: [1, 2, 3, 4, 5, 6]
+ * removeDuplicates('not-an-array'); // Returns: undefined
+ */
+export function removeDuplicates(array) {
+    if (!Array.isArray(array)) {
+        console.error('removeDuplicates: Argument is not a valid array.');
+        return undefined;
+    }
+
+    return array.filter((element, index) => array.indexOf(element) === index)
+}
+
 
 
 

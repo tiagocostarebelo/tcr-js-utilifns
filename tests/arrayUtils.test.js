@@ -1,7 +1,8 @@
 import {
     chunkArray,
     isArrayEmpty,
-    isArrayEqual
+    isArrayEqual,
+    removeDuplicates
 } from '../src/arrayUtils';
 
 describe('Array Utilities', () => {
@@ -9,11 +10,15 @@ describe('Array Utilities', () => {
     //isArrayEmpty function test
     describe('isArrayEmpty', () => {
         it('Should return true if array is empty', () => {
+            console.error = jest.fn();
             expect(isArrayEmpty([])).toBe(true);
+            console.error.mockRestore();
         });
 
         it('Should return false if array is not empty', () => {
+            console.error = jest.fn();
             expect(isArrayEmpty(['John', 'Jane', 'Janet', 1, 2, 3])).toBe(false);
+            console.error.mockRestore();
         });
 
         it('Should return undefined for invalid array', () => {
@@ -35,6 +40,7 @@ describe('Array Utilities', () => {
             expect(console.error).toHaveBeenCalledWith('isArrayEqual: Argument is not a valid array.');
             console.error.mockRestore();
         });
+
         it('Should return false if the arrays do not have the same length', () => {
             console.error = jest.fn();
             expect(isArrayEqual([1, 2], [1, 2, 3])).toBe(false);
@@ -43,18 +49,22 @@ describe('Array Utilities', () => {
         });
 
         it('Should return true if the arrays are equal in their value and order', () => {
+            console.error = jest.fn();
             expect(isArrayEqual([1, 2, 3], [1, 2, 3])).toBe(true);
             expect(isArrayEqual([1, 2, "3"], [1, 2, "3"])).toBe(true);
             expect(isArrayEqual(["one value"], ["one value"])).toBe(true);
             expect(isArrayEqual([3, 5, 7, 8], [3, 5, 7, 8])).toBe(true);
+            console.error.mockRestore();
         })
 
         it('Should return false if the arrays are not equal in their value and order', () => {
+            console.error = jest.fn();
             expect(isArrayEqual([1, 2, 3], [3, 4, 5])).toBe(false);
             expect(isArrayEqual([1, 2, 3], [1, 2, "3"])).toBe(false);
             expect(isArrayEqual([3, 5, 6, 7], [1, 2, 3, 4])).toBe(false);
             expect(isArrayEqual([3, 5, 6, 7], [3, 5, 7, 8])).toBe(false);
             expect(isArrayEqual(["one", { name: "John" }], ["one", { name: "John" }])).toBe(false);
+            console.error.mockRestore();
         })
     });
 
@@ -79,10 +89,30 @@ describe('Array Utilities', () => {
         });
 
         it('Should split the array correctly into chunks', () => {
+            console.error = jest.fn();
             expect(chunkArray([1, 2, 3, 4, 5], 2)).toEqual([[1, 2], [3, 4], [5]]);
             expect(chunkArray([1, 2, 3, 4], 2)).toEqual([[1, 2], [3, 4]]);
             expect(chunkArray([1, 2], 3)).toEqual([[1, 2]]);
             expect(chunkArray([], 2)).toEqual([]);
+            console.error.mockRestore();
         });
     });
+
+    //removeDuplicates function test
+    describe('removeDuplicates', () => {
+        it('Should return undefined for invalid argument array', () => {
+            console.error = jest.fn();
+            expect(removeDuplicates('I am a string')).toBeUndefined();
+            expect(removeDuplicates({ key: "value" })).toBeUndefined();
+            expect(console.error).toHaveBeenCalledWith('removeDuplicates: Argument is not a valid array.');
+            console.error.mockRestore();
+        });
+
+        it('Should return an array without any duplicate values', () => {
+            console.error = jest.fn();
+            expect(removeDuplicates([1, 2, 2, 3, 4, 4, 5])).toEqual([1, 2, 3, 4, 5]);
+            expect(removeDuplicates(["John", "Alice", "Ben", "Ben", "John"])).toEqual(["John", "Alice", "Ben"]);
+            console.error.mockRestore();
+        });
+    })
 });
